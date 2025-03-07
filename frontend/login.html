@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login - Doações Solidárias</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Doações Solidárias</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="register.html">Registrar</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="form-container">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" placeholder="seuemail@exemplo.com" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Senha:</label>
+          <input type="password" id="password" placeholder="Sua senha" required>
+        </div>
+        <div class="form-group">
+          <button type="submit">Entrar</button>
+        </div>
+        <p style="text-align: center;">Não tem conta? <a href="register.html" style="color: var(--tertiary-color);">Cadastre-se</a></p>
+      </form>
+    </div>
+  </section>
+  <script src="js/main.js"></script>
+</body>
+</html>

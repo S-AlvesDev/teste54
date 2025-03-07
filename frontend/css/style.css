@@ -1,0 +1,152 @@
+/* Definição das cores */
+:root {
+    --primary-color: #D8B4FE;   /* roxo claro */
+    --secondary-color: #000000; /* preto */
+    --tertiary-color: #4B0082;  /* roxo escuro */
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background: #fff;
+    color: var(--secondary-color);
+    line-height: 1.6;
+  }
+  
+  /* Cabeçalho */
+  header {
+    background: var(--primary-color);
+    padding: 20px;
+  }
+  
+  header .container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  header h1 {
+    font-size: 1.8em;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+  }
+  
+  nav ul li {
+    margin-left: 15px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--secondary-color);
+  }
+  
+  /* Seções */
+  .section {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  .section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Hero */
+  .hero {
+    background: var(--tertiary-color);
+    color: #fff;
+    text-align: center;
+    padding: 60px 20px;
+  }
+  
+  /* Formulários */
+  .form-container {
+    max-width: 500px;
+    background: var(--primary-color);
+    padding: 20px;
+    margin: auto;
+    border-radius: 5px;
+  }
+  
+  .form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input,
+  .form-group button,
+  .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .form-group button {
+    background: var(--tertiary-color);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .form-group button:hover {
+    background: var(--secondary-color);
+  }
+  
+  /* Botões e links */
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--tertiary-color);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .btn:hover {
+    background: var(--secondary-color);
+  }
+  
+  /* Rodapé */
+  footer {
+    background: var(--primary-color);
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    header .container {
+      flex-direction: column;
+    }
+    nav ul {
+      flex-direction: column;
+      margin-top: 10px;
+    }
+    nav ul li {
+      margin: 5px 0;
+    }
+  }
+  

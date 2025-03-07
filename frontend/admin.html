@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Painel Administrativo - Doações Solidárias</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Painel Administrativo</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="donate.html">Doar</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section">
+    <h2>Usuários Cadastrados</h2>
+    <div id="usersContainer">
+      <!-- Os usuários serão carregados aqui via API -->
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Doações Realizadas</h2>
+    <div id="donationsContainer">
+      <!-- As doações serão carregadas aqui via API -->
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Doações Solidárias. Todos os direitos reservados.</p>
+  </footer>
+  <script>
+    // Função para carregar dados do painel administrativo (exige token e usuário admin)
+    async function loadAdminData() {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        alert('Acesso negado! Faça login.');
+        window.location.href = 'login.html';
+        return;
+      }
+      
+      // Carregar usuários
+      try {
+        const usersRes = await fetch('http://localhost:5000/api/admin/users', {
+          headers: { 'Authorization': 'Bearer ' + token }
+        });
+        const usersData = await usersRes.json();
+        if (usersData.users) {
+          let usersHTML = '<ul>';
+          usersData.users.forEach(user => {
+            usersHTML += `<li>${user.name} - ${user.email} (${user.role})</li>`;
+          });
+          usersHTML += '</ul>';
+          document.getElementById('usersContainer').innerHTML = usersHTML;
+        }
+      } catch (error) {
+        console.error(error);
+      }
+      
+      // Carregar doações
+      try {
+        const donationsRes = await fetch('http://localhost:5000/api/admin/donations', {
+          headers: { 'Authorization': 'Bearer ' + token }
+        });
+        const donationsData = await donationsRes.json();
+        if (donationsData.donations) {
+          let donationsHTML = '<ul>';
+          donationsData.donations.forEach(donation => {
+            donationsHTML += `<li>${donation.type} - ${donation.amount || ''} - Usuário: ${donation.user.name}</li>`;
+          });
+          donationsHTML += '</ul>';
+          document.getElementById('donationsContainer').innerHTML = donationsHTML;
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    
+    window.onload = loadAdminData;
+  </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Doar - Doações Solidárias</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Doações Solidárias</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="register.html">Registrar</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="form-container">
+      <h2>Realize sua Doação</h2>
+      <form id="donationForm">
+        <div class="form-group">
+          <label for="donationType">Tipo de Doação:</label>
+          <select id="donationType" required>
+            <option value="pix">PIX (Gerar QR Code)</option>
+            <option value="alimentos">Doação de Alimentos (Presencial)</option>
+          </select>
+        </div>
+        <div class="form-group" id="amountGroup">
+          <label for="donationAmount">Valor (para PIX):</label>
+          <input type="number" id="donationAmount" placeholder="Digite o valor" required>
+        </div>
+        <div class="form-group">
+          <button type="submit">Doar</button>
+        </div>
+      </form>
+      <!-- Container para exibir o QR Code (se PIX) -->
+      <div id="qrCodeContainer" style="text-align: center; margin-top: 20px;"></div>
+    </div>
+  </section>
+  <script src="js/main.js"></script>
+</body>
+</html>
